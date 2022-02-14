@@ -9,7 +9,7 @@
                 title="Edit todo"
                 ></i>
             </h5>
-            <h5 class="m-0 p-0 px-2">
+            <h5 class="m-0 p-0 px-2"  @click="DeleteItem(id)">
                 <i
                 class="fa fa-trash text-danger btn m-0 p-0"
                 data-toggle="tooltip"
@@ -27,14 +27,18 @@
                 title=""
                 data-original-title="Created date"
                 ></i>
-                <label class="date-label my-2 text-black-50">28th Jun 2020</label>
+                <label class="date-label my-2 text-black-50">{{date}}</label>
             </div>
             </div>
         </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
     export default {
-
+        props:['date','id'],
+        methods: {
+            ...mapMutations(['DeleteItem'])
+        },
     }
 </script>
