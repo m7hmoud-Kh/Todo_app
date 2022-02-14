@@ -1,0 +1,24 @@
+<template>
+    <div class="col-auto m-1 p-0 d-flex align-items-center">
+        <h2 class="m-0 p-0">
+        <i
+            class="fa fa-check-square text-primary btn m-0 p-0 d-none"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Mark as complete"
+        ></i>
+        <i
+            class="far fa-square text-primary btn m-0 p-0"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Mark as todo"
+        ></i>
+        </h2>
+    </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
