@@ -27,7 +27,10 @@ export default createStore({
         },
         all_item: [],
         filtering: 'all',
-        theme: true
+        theme: true,
+        count_all_task: 0,
+        count_compelete_task: 0,
+        count_todo_task:0
     },
     mutations: {
         AddTask: async (state) => {
@@ -53,6 +56,7 @@ export default createStore({
         },
         GetAllItem: async (state) => {
             state.all_item = await fetchAllItem()
+            state.count_all_task = state.all_item.length
         },
         DeleteItem: async (state,id)  => {
             await axios.delete('http://localhost:3000/items/'+id)
