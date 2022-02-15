@@ -2,7 +2,7 @@
   "items": [
     {
       "task": "task 4",
-      "status": false,
+      "status": true,
       "date": "Tue Feb 15 2022",
       "editable": false,
       "id": 3
@@ -27,6 +27,13 @@
       "date": "Tue Feb 15 2022",
       "editable": false,
       "id": 7
+    },
+    {
+      "task": "task 66",
+      "status": true,
+      "date": "Tue Feb 15 2022",
+      "editable": false,
+      "id": 8
     }
   ]
 }

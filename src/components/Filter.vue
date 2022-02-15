@@ -46,6 +46,7 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
+import Swal from 'sweetalert2'
 export default {
     data() {
         return {
@@ -76,6 +77,14 @@ export default {
                 return !arr.status
             })
             this.$store.state.count_todo_task = this.$store.state.count_todo_task.length
+            if(this.$store.state.count_all_task == this.$store.state.count_compelete_task){
+                Swal.fire({
+                        title: 'Greet Job!',
+                        text: 'You Compeleted ALL Task',
+                        icon: "success",
+                        timer: 3000,
+                    });
+            }
         }
 
     }
