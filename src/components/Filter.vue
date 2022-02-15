@@ -77,7 +77,9 @@ export default {
                 return !arr.status
             })
             this.$store.state.count_todo_task = this.$store.state.count_todo_task.length
-            if(this.$store.state.count_all_task == this.$store.state.count_compelete_task){
+            if(
+                this.$store.state.count_all_task == this.$store.state.count_compelete_task && this.$store.state.filtering == 'all'
+                && this.$store.state.count_all_task > 0 ){
                 Swal.fire({
                         title: 'Greet Job!',
                         text: 'You Compeleted ALL Task',
