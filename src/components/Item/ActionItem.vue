@@ -1,7 +1,7 @@
 <template>
         <div class="col-auto m-1 p-0 todo-actions">
             <div class="row d-flex align-items-center justify-content-end">
-            <h5 class="m-0 p-0 px-2">
+            <h5 class="m-0 p-0 px-2" @click="EditItem(id)">
                 <i
                 class="fa fa-pencil text-info btn m-0 p-0"
                 data-toggle="tooltip"
@@ -38,7 +38,7 @@ import { mapMutations } from 'vuex'
     export default {
         props:['date','id'],
         methods: {
-            ...mapMutations(['DeleteItem'])
+            ...mapMutations(['DeleteItem','EditItem'])
         },
     }
 </script>

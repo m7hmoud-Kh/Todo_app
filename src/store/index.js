@@ -17,13 +17,14 @@ export default createStore({
         item: {
             task: '',
             status: false,
-            date: new Date().toDateString()
+            date: new Date().toDateString(),
+            editable: false
         },
+        newTask: '',
         vaildate_Add: {
             status: false,
             class_Added: ''
         },
-        editable: false,
         all_item: []
     },
     mutations: {
@@ -59,6 +60,26 @@ export default createStore({
                 icon: "error",
                 timer: 2000
             });
+            state.all_item = await fetchAllItem()
+        },
+        EditItem: async (state,id) => {
+            let result = await axios.get('http://localhost:3000/items/'+id)
+            if(result.data.editable && state.newTask){
+                result.data.task = state.newTask
+                state.newTask = ''
+                
+            }else
+            {
+                state.newTask = result.data.task
+            }
+            result.data.editable = !result.data.editable
+            await axios.put('http://localhost:3000/items/'+id,result.data)
+            state.all_item = await fetchAllItem()
+        },
+        MarkItem: async (state,id) => {
+            let result = await axios.get('http://localhost:3000/items/'+id)
+            result.data.status = !result.data.status
+            await axios.put('http://localhost:3000/items/'+id,result.data)
             state.all_item = await fetchAllItem()
         }
     },
