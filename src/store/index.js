@@ -25,7 +25,8 @@ export default createStore({
             status: false,
             class_Added: ''
         },
-        all_item: []
+        all_item: [],
+        filtering: 'all'
     },
     mutations: {
         AddTask: async (state) => {
@@ -67,7 +68,6 @@ export default createStore({
             if(result.data.editable && state.newTask){
                 result.data.task = state.newTask
                 state.newTask = ''
-                
             }else
             {
                 state.newTask = result.data.task
@@ -81,6 +81,11 @@ export default createStore({
             result.data.status = !result.data.status
             await axios.put('http://localhost:3000/items/'+id,result.data)
             state.all_item = await fetchAllItem()
+        },
+        Filter_task: async (state,filtering) => {
+
+            let result = await axios.get('http://localhost:3000/items?status='+filtering)
+            state.all_item = result.data
         }
     },
 })
