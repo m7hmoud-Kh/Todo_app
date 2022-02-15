@@ -30,7 +30,7 @@
         justify-content: center;
         background: #007bff;
         padding-top: 6px;
-        height: 100px;
+        height: auto;
         align-items: center;
 
     }
@@ -42,6 +42,7 @@
         text-align: center;
         text-transform: capitalize;
         color: white;
+        margin-bottom: 0 !important;
     }
     footer .heart {
         color: #f00;

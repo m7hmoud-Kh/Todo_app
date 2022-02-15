@@ -14,6 +14,7 @@
             v-show="!item.editable"
             type="text"
             class="form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3"
+            :class="theme == false && 'template_dark'"
             readonly
             :value="item.task"
             :title="item.task"
@@ -49,7 +50,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(["editable",'all_item','newTask']),
+        ...mapState(["editable",'all_item','newTask','theme']),
     },
     methods: {
         ...mapMutations(['GetAllItem']),
@@ -67,4 +68,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.template_dark{
+    color: white !important;
+}
+</style>

@@ -26,7 +26,8 @@ export default createStore({
             class_Added: ''
         },
         all_item: [],
-        filtering: 'all'
+        filtering: 'all',
+        theme: true
     },
     mutations: {
         AddTask: async (state) => {
@@ -40,7 +41,7 @@ export default createStore({
                         title: 'Greet Job!',
                         text: 'You Added New Task',
                         icon: "success",
-                        timer: 2000
+                        timer: 2000,
                     });
                     state.all_item = await fetchAllItem()
                 }
@@ -86,6 +87,6 @@ export default createStore({
 
             let result = await axios.get('http://localhost:3000/items?status='+filtering)
             state.all_item = result.data
-        }
+        },
     },
 })
