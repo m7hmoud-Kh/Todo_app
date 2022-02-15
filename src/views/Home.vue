@@ -1,16 +1,19 @@
 <template>
     <div class="container m-5 p-2 rounded mx-auto bg-light shadow">
-      <!-- App title section -->
-      <Title />
-      <!-- Create todo section -->
-      <CreateTodo />
-      <div class="p-2 mx-4 border-black-25 border-bottom"></div>
-      <!-- View Filter section -->
-      <Filter />
-      <!-- Todo list section -->
-      <div class="row mx-1 px-5 pb-3 w-80">
-          <TodoItem />
-      </div>
+        <!-- App title section -->
+        <Title />
+        <!-- Create todo section -->
+        <CreateTodo />
+        <div class="p-2 mx-4 border-black-25 border-bottom"></div>
+        <!-- View Filter section -->
+        <Filter />
+        <!-- Todo list section -->
+        <div class="row mx-1 px-5 pb-3 w-80">
+            <TodoItem />
+        </div>
+        <div>
+            <Footer/>
+        </div>
     </div>
 </template>
 
@@ -21,14 +24,16 @@ import Title from "../components/Title.vue"
 import CreateTodo from '../components/CreateTodo.vue'
 import Filter from '../components/Filter.vue'
 import TodoItem from '../components/TodoItem.vue'
+import Footer from '../components/Footer.vue'
 export default {
-  name: "Home",
-  components: {
-    Title,
-    CreateTodo,
-    Filter,
-    TodoItem
-  },
+    name: "Home",
+    components: {
+        Title,
+        CreateTodo,
+        Filter,
+        TodoItem,
+        Footer
+    },
 };
 </script>
 
